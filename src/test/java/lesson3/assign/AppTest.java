@@ -1,6 +1,5 @@
 package lesson3.assign;
 
-import java.io.IOException;
 import java.util.regex.Pattern;
 
 import junit.framework.Test;
@@ -10,6 +9,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
+
 public class AppTest 
     extends TestCase
 {
