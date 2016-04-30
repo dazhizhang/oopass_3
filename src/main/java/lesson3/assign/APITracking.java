@@ -33,8 +33,8 @@ public class APITracking {
 	            reader.close();
 	    }
 	}
-	
-	public static String getTrackingSts(String uspsnumber) throws Exception{
+	@NotOnWeekends
+	public  String getTrackingSts(String uspsnumber) throws Exception{
 		String status = "";
 		
 		try {
@@ -90,5 +90,8 @@ public class APITracking {
 		
 		return status;
 	}
-	
+	@NotOnWeekends
+	public void testnotoneweekeds() {
+		System.out.println("just say something here");
+	}
 }

@@ -2,6 +2,9 @@ package lesson3.assign;
 
 import java.util.regex.Pattern;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -51,7 +54,12 @@ public class AppTest
     public void testOneUsps(String usps_number) throws Exception {
     	String status_jsoup = JsoupTracking.getTrackingSts(usps_number);
         System.out.println( status_jsoup );
-    	String status_api = APITracking.getTrackingSts(usps_number);
+        
+   	 Injector injector = Guice.createInjector(new NotOnWeekendsModule());
+   	 APITracking hero = injector.getInstance(APITracking.class);
+   	 
+    	String status_api = hero.getTrackingSts(usps_number);
+    	
     	System.out.println( status_api );
         assertTrue( status_jsoup.equalsIgnoreCase(status_api) );
         
